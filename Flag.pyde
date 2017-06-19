@@ -1,10 +1,10 @@
 #Darrell Harriman  harrimand@gmail.com  06/18/2017
 #Processing IDE in Python Mode
-#Draw US Flage based on dimensions at www.usflag.org/flagspecs.html
+#Draw US Flag based on dimensions at www.usflag.org/flagspecs.html
 #Flag is scaled according to flagHeight
 #border will size the window so there is a border on the sides, top and bottom of flag.
 
-flagHeight = 400
+flagHeight = 800
 border = 20
 
 def settings():
@@ -31,7 +31,7 @@ def draw():
     rect(border, border, B, flagHeight)    #Flag White Background
 
 # Union Background
-    fill(0, 0, 192)
+    fill(0, 33, 71)
     rect(border, border, D, C)    #Union Background
 
 # Union Stars on Odd rows
@@ -45,7 +45,7 @@ def draw():
             shape(star, s * H + border, r4 * F + border)
 
 # Red Stripes
-    fill(255, 0, 0)
+    fill(187, 19, 62)
     for stpos in range(0, 14, 2):
         stLeft = D + border if stpos < 8 else border
         stWidth = B - D if stpos < 8 else B
