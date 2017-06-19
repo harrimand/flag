@@ -25,24 +25,26 @@ def draw():
     L = .0769 * flagHeight   # Stripe Width
     B = 1.9 * flagHeight     # Flag Width
 
-#White Flag Background
+# White Flag Background
     noStroke()
     fill(255, 255, 255)
     rect(border, border, B, flagHeight)    #Flag White Background
+
+# Union Background
     fill(0, 0, 192)
     rect(border, border, D, C)    #Union Background
 
-#Union Stars on Odd rows
+# Union Stars on Odd rows
     for r6 in range(1, 11, 2):
         for s in range(1, 13, 2):
             shape(star, s * H + border, r6 * F + border)
 
-#Union Stars on Even rows
+# Union Stars on Even rows
     for r4 in range(2, 10, 2):
         for s in range(2, 12, 2):
             shape(star, s * H + border, r4 * F + border)
 
-#Red Stripes
+# Red Stripes
     fill(255, 0, 0)
     for stpos in range(0, 14, 2):
         stLeft = D + border if stpos < 8 else border
@@ -52,6 +54,12 @@ def draw():
     noLoop()
 
 def makeStar(r):
+    """  Vertex scalers are calculated for a 5 point star using points at radius r 
+    evenly distributed in 72 degree increments.  Inner points are 36 degrees from 
+    outer points.  x scalers (h1 - h5) and y scalers (v1 - v5) were pre-calculated 
+    using the cos(), sin() functions and intersect points for lines connecting 
+    outer points. 
+    """
     h1 = 0
     h2 = .224514
     h3 = .363271
